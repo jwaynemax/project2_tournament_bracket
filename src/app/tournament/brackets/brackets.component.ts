@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RosterService } from '../../services/roster-service.service';
+
 
 @Component({
   selector: 'app-brackets',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BracketsComponent implements OnInit {
 
-  constructor() { }
+  public players: string[];
+  constructor(private rosterService: RosterService) { }
 
   ngOnInit(): void {
+    this.players = this.rosterService.getContestants();
   }
 
 }
