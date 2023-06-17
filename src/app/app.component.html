@@ -12,6 +12,10 @@
     </span>
 </nav>
 
+<h1>Player</h1>
+    <button (click)="addContestant('John Doe')">Create Player</button>
+
+      <p *ngFor="let player of players">{{ player }}</p>
 
 
 <router-outlet></router-outlet>

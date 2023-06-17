@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { RosterService } from './services/roster-service.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project2';
+
+  players: string[] = [];
+
+  constructor(private rosterService: RosterService) {}
+
+  addContestant(player: string) {
+    this.rosterService.addContestant(player);
+    this.players = this.rosterService.getContestants();
+  }
 }

@@ -4,15 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RosterService {
-  private player: string[];
+  private players: string[];
 
   constructor() { }
-}
 
-getContestants() : string[] {
-    return this.player;
-}
+  getContestants() : string[] {
+      return this.players;
+  }
 
-addContestant(player: string) {
-  this.player.push(player);
+  addContestant(player: string) {
+    this.players.push(player);
+  }
 }
