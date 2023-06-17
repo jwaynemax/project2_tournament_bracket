@@ -1,3 +1,55 @@
-<p>registration works!</p>
+  <h1>Register Players</h1>
+  <p *ngFor="let player of players; index as i">{{player}}</p>
 
-<button (click)="registerContestants('John Doe')">Print console</button>
+  <div class="form-group">
+
+      <div class="register-form">
+        <input type="text"
+               placeholder="Contestant 1"
+               name="contestant-one"
+               [formControl]="nameControl">
+     </div>
+     <div class="register-form">
+        <input type="text"
+                placeholder="Contestant 2"
+                name="contestant-two"
+                [formControl]="nameControl">
+      </div>
+      <div class="register-form">
+        <input type="text"
+               placeholder="Contestant 3"
+               name="contestant-three"
+               [formControl]="nameControl">
+       </div>
+       <div class="register-form">
+        <input type="text"
+                placeholder="Contestant 4"
+                name="contestant-four"
+                [formControl]="nameControl">
+        </div>
+        <div class="register-form">
+        <input type="text"
+               placeholder="Contestant 5"
+               name="contestant-five"
+               [formControl]="nameControl">
+       </div>
+       <div class="register-form">
+        <input type="text"
+                placeholder="Contestant 6"
+                name="contestant-six"
+                [formControl]="nameControl">
+        </div>
+        <div class="register-form">
+        <input type="text"
+               placeholder="Contestant 7"
+               name="contestant-seven"
+               [formControl]="nameControl">
+       </div>
+       <div class="register-form">
+        <input type="text"
+                placeholder="Contestant 8"
+                name="contestant-eight"
+                [formControl]="nameControl">
+      </div>
+
+  <button (click)="registerContestants()">Register Contestants</button>

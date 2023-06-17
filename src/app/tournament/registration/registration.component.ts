@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RosterService } from './services/roster-service.service';
+import { RosterService } from '../../services/roster-service.service';
+import { FormControl } from '@angular/forms';
+
 
 
 @Component({
@@ -9,21 +11,20 @@ import { RosterService } from './services/roster-service.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  public players: string[];
+  public players: string[] = ['','','','','','','',''];
   public messages: string;
-  constructor() {
-    this.players = ['','','john','','','','',''];
-  }
+  public nameControl = new FormControl();
+  constructor(private rosterService: RosterService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   registerContestants() {
-    this.players.forEach(function (value) {
+    this.players.forEach((value) => {
       if (value == '') {
         console.log('empty');
       } else {
-          console.log(value);
+        console.log(value);
+        this.rosterService.addContestant(value);
       }
     });
   }
