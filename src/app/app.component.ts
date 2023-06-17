@@ -11,12 +11,12 @@ import { RosterService } from './services/roster-service.service';
 export class AppComponent implements OnInit {
   title = 'project2';
 
-  public players: string[];
+  public contestants: string[];
 
   constructor(private rosterService: RosterService) {}
 
   ngOnInit() {
-    this.players = this.rosterService.getContestants();
+    this.contestants = this.rosterService.getContestants();
   }
 
   addContestant(player: string) {

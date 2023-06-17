@@ -5,16 +5,29 @@ import { Injectable } from '@angular/core';
 })
 export class RosterService {
 
-  private players: string[];
+  private contestants: string[];
   constructor() {
-    this.players = [];
+    this.contestants = [];
    }
 
   getContestants() : string[] {
-      return this.players;
+      return this.contestants;
   }
 
   addContestant(player: string) {
-    this.players.push(player);
+
+    if (player == null) {
+      throw new Error("Player cannot be null");
+    }
+
+    if (player == "") {
+      throw new Error("Player cannot be empty");
+    }
+
+    if (this.getContestants().includes(player)) {
+      throw new Error("Player already exists");
+    }
+
+    this.contestants.push(player);
   }
 }
