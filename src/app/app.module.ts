@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './tournament/registration/registration.component';
 import { HelloComponent } from './tournament/hello/hello.component';
 import { BracketsComponent } from './tournament/brackets/brackets.component';
+import { RosterService } from 'app/services/roster-service.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { BracketsComponent } from './tournament/brackets/brackets.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    RosterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
