@@ -9,11 +9,14 @@ import { RosterService } from '../../services/roster-service.service';
 })
 export class BracketsComponent implements OnInit {
 
-  public players: string[];
-  constructor(private rosterService: RosterService) { }
+  public testers: string[];
+  constructor(private rosterService: RosterService) {
+    this.testers = rosterService.getContestants();
+    console.log(this.testers);
 
-  ngOnInit(): void {
-    this.players = this.rosterService.getContestants();
-  }
+   }
+
+  ngOnInit(): void {}
+
 
 }

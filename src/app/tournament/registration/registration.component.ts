@@ -13,12 +13,12 @@ export class RegistrationComponent implements OnInit {
 
   public players: string[] = ['', '', '', '', '', '', '', ''];
   public messages: string;
-  public outputPlayers: string[];
   constructor(private rosterService: RosterService) { }
 
   ngOnInit(): void { }
 
   registerContestants() {
+    this.messages = '';
     this.players.forEach((value) => {
       if (value != '') {
         try {
@@ -29,12 +29,13 @@ export class RegistrationComponent implements OnInit {
       }
     });
 
-    console.log(this.rosterService.getContestants().length);
-
-    if (this.rosterService.getContestants().length !== 2 && this.rosterService.getContestants().length !== 4 && this.rosterService.getContestants().length !== 8) {
-      this.messages = "Register either 2, 4, or 8 players";
+    if (this.messages === '' && this.rosterService.getContestants().length !== 2 && this.rosterService.getContestants().length !== 4 && this.rosterService.getContestants().length !== 8) {
+      this.messages = "Must have 2, 4, or 8 Players";
+      this.rosterService = new RosterService();
     }
-    this.outputPlayers = this.rosterService.getContestants();
+    if (this.messages === '') {
+      this.messages = this.rosterService.getContestants();
+    }
   }
 
   trackByFn(index: any, item: any) {
