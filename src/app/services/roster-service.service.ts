@@ -4,9 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RosterService {
-  private players: string[];
 
-  constructor() { }
+  private players: string[];
+  constructor() {
+    this.players = [];
+   }
 
   getContestants() : string[] {
       return this.players;
