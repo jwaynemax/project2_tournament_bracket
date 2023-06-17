@@ -11,26 +11,26 @@ import { FormControl } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
 
-  public players: string[] = ['','','','','','','',''];
+  public players: string[] = ['', '', '', '', '', '', '', ''];
   public messages: string;
-  public nameControl = new FormControl();
-  constructor(private rosterService: RosterService) {}
+  public outputPlayers: string[];
+  constructor(private rosterService: RosterService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   registerContestants() {
     this.players.forEach((value) => {
-      if (value == '') {
-        console.log('empty');
-      } else {
-        console.log(value);
-        this.rosterService.addContestant(value);
-      }
+        try {
+          this.rosterService.addContestant(value);
+        } catch (error) {
+          this.messages = error;
+        }
     });
+    this.outputPlayers = this.rosterService.getContestants();
   }
 
   trackByFn(index: any, item: any) {
-   return index;
-}
+    return index;
+  }
 
 }
