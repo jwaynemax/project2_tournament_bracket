@@ -21,12 +21,18 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['spec'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
     browsers: ['FirefoxHeadless'],
+customLaunchers: {
+  'FirefoxHeadless': {
+    base: 'Firefox',
+    flags: [ '-headless', ],
+  }
+},
     customLaunchers: {
       'FirefoxHeadless': {
         base: 'Firefox',
