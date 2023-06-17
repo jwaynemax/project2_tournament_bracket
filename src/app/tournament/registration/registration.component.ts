@@ -19,9 +19,16 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void { }
 
   registerContestants() {
+    let count = 0;
     this.players.forEach((value) => {
         try {
           this.rosterService.addContestant(value);
+          if (count == 1 || count == 3 || count == 7) {
+            if(value == '') {
+              console.log("Bracket must have 2, 4, or 8 players.")
+            }
+          }
+          count++;
         } catch (error) {
           this.messages = error;
         }
