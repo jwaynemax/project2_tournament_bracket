@@ -14,11 +14,6 @@ export class BracketsComponent implements OnInit {
   public groupTwo: string;
   public groupThree: string;
   public groupFour: string;
-  // public groupFive: string;
-  // public groupSix: string;
-  // public groupSeven: string;
-  // public groupEight: string;
-//  public winners: string[];
   public round = 1;
   constructor(private rosterService: RosterService) {
     if (this.round == 1) {
@@ -30,8 +25,6 @@ export class BracketsComponent implements OnInit {
 
   getWinner(): string[] {
     this.players = [];
-
-
     if (this.groupOne !== '') {
       this.players.push(this.groupOne);
     }
@@ -53,10 +46,9 @@ export class BracketsComponent implements OnInit {
     this.groupThree = '';
     this.groupFour = '';
 
-    this.round++;
+    if(this.round !== 3) {
+      this.round++;
+    }
     return this.players;
   }
 }
-
-
-// select complete this round --> getWinner

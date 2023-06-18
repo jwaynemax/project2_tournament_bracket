@@ -20,18 +20,38 @@ export class RegistrationComponent implements OnInit {
 
   registerContestants() {
     this.messages = '';
-    this.players.forEach((value) => {
-      if (value != '') {
+
+    for (let i = 0; i < this.players.length; i++) {
+      let player = this.players[i];
+      console.log(player !== "");
+      if (player !== "") {
         try {
-          this.rosterService.addContestant(value);
+          this.rosterService.addContestant(player);
         } catch (error) {
           this.messages = error;
+          this.rosterService.contestants = [];
+          break;
         }
       }
-    });
+    }
 
-    if (this.messages === '' && this.rosterService.getContestants().length !== 2 && this.rosterService.getContestants().length !== 4 && this.rosterService.getContestants().length !== 8) {
+    // this.players.forEach((value) => {
+    //   if (value != '') {
+    //     try {
+    //       this.rosterService.addContestant(value);
+    //     } catch (error) {
+    //       this.messages = error;
+    //       this.rosterService.contestants = [];
+    //     }
+    //   }
+    // });
+
+    console.log(this.rosterService.getContestants());
+
+
+    if (this.rosterService.getContestants().length !== 2 && this.rosterService.getContestants().length !== 4 && this.rosterService.getContestants().length !== 8) {
       this.messages = "Must have 2, 4, or 8 Players";
+      this.rosterService.contestants = [];
     }
     this.outputPlayers = this.rosterService.getContestants();
 
