@@ -1,7 +1,11 @@
 <p>brackets works!</p>
 
-<span *ngFor="let player of players; index as i">{{player}} </span>
-
-<<div class="bracket-list">
-
-</div>>
+<div class="form-group">
+  <form (ngSubmit)="getWinner()">
+    <label *ngFor="let player of players">
+      <input type="radio" name="currentPlayer" [(ngModel)]="currentPlayer" [value]="player">
+      {{player}}
+    </label>
+    <button type="submit">Complete Round</button>
+  </form>
+</div>
