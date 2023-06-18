@@ -10,15 +10,21 @@ import { RosterService } from '../../services/roster-service.service';
 export class BracketsComponent implements OnInit {
 
   public players: string[];
-  public currentPlayer: string;
+  public groupOne: string;
+  public groupTwo: string;
+  public groupThree: string;
+  public groupFour: string;
+  public winners: string[];
   constructor(private rosterService: RosterService) {
     this.players = rosterService.getContestants();
+    this.winners = [];
    }
 
   ngOnInit(): void {}
 
-  getWinner(): string {
-    return "winner";
+  getWinner(): string[] {
+    this.winners.push(this.groupOne, this.groupTwo);
+    return this.winners;
   }
 
 
