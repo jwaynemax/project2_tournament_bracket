@@ -23,7 +23,7 @@ export class BracketsComponent implements OnInit {
   ngOnInit(): void {}
 
   getWinner(): string[] {
-    this.winners.push(this.groupOne, this.groupTwo);
+    this.winners.push(this.groupOne, this.groupTwo, this.groupThree, this.groupFour);
     return this.winners;
   }
 
