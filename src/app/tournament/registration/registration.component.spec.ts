@@ -42,4 +42,10 @@ describe('RegistrationComponent', () => {
     component.registerContestants();
     expect(component.messages === "Error: Player cannot be empty");
   });
+
+  it('should only allow brackets with 2, 4, or 8', () => {
+    component.players = ['John', 'Doe', 'Randy']
+    component.registerContestants();
+    expect(component.messages === "Must have 2, 4, or 8 Players");
+  });
 });

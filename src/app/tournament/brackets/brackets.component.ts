@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { RosterService } from '../../services/roster-service.service';
 
 
@@ -9,11 +9,9 @@ import { RosterService } from '../../services/roster-service.service';
 })
 export class BracketsComponent implements OnInit {
 
-  public testers: string[];
+  public players: string[];
   constructor(private rosterService: RosterService) {
-    this.testers = rosterService.getContestants();
-    console.log(this.testers);
-
+    this.players = rosterService.getContestants();
    }
 
   ngOnInit(): void {}
