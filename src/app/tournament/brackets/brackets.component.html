@@ -2,10 +2,57 @@
 
 <div class="form-group">
   <form (ngSubmit)="getWinner()">
-    <label *ngFor="let player of players">
-      <input type="radio" name="currentPlayer" [(ngModel)]="currentPlayer" [value]="player">
-      {{player}}
-    </label>
-    <button type="submit">Complete Round</button>
+    <div class="form-sections" *ngFor="let player of players; let i = index">
+      <div class="bracket-section" *ngIf="i == 1">
+        <h2>Match 1</h2>
+        <label>
+          <input type="radio" name="currentPlayer" [(ngModel)]="currentPlayer" [value]="players[i-1]">
+          {{players[i-1]}}
+        </label>
+        <label>
+          <input type="radio" name="currentPlayer" [(ngModel)]="currentPlayer" [value]="players[i]">
+          {{players[i]}}
+        </label>
+      </div>
+
+      <div class="bracket-section" *ngIf="i == 3">
+        <h2>Match 2</h2>
+        <label>
+          <input type="radio" name="currentPlayer" [(ngModel)]="currentPlayer" [value]="players[i-1]">
+          {{players[i-1]}}
+        </label>
+        <label>
+          <input type="radio" name="currentPlayer" [(ngModel)]="currentPlayer" [value]="players[i]">
+          {{players[i]}}
+        </label>
+      </div>
+
+      <div class="bracket-section" *ngIf="i == 5">
+        <h2>Match 3</h2>
+        <label>
+          <input type="radio" name="currentPlayer" [(ngModel)]="currentPlayer" [value]="players[i-1]">
+          {{players[i-1]}}
+        </label>
+        <label>
+          <input type="radio" name="currentPlayer" [(ngModel)]="currentPlayer" [value]="players[i]">
+          {{players[i]}}
+        </label>
+      </div>
+
+      <div class="bracket-section" *ngIf="i == 7">
+        <h2>Match 4</h2>
+        <label>
+          <input type="radio" name="currentPlayer" [(ngModel)]="currentPlayer" [value]="players[i-1]">
+          {{players[i-1]}}
+        </label>
+        <label>
+          <input type="radio" name="currentPlayer" [(ngModel)]="currentPlayer" [value]="players[i]">
+          {{players[i]}}
+        </label>
+      </div>
+    </div>
+    <div class="">
+      <button type="submit">Complete Round</button>
+    </div>
   </form>
 </div>
