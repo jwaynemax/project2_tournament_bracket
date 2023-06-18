@@ -49,7 +49,7 @@ export class RegistrationComponent implements OnInit {
     console.log(this.rosterService.getContestants());
 
 
-    if (this.rosterService.getContestants().length !== 2 && this.rosterService.getContestants().length !== 4 && this.rosterService.getContestants().length !== 8) {
+    if (this.messages === '' && this.rosterService.getContestants().length !== 2 && this.rosterService.getContestants().length !== 4 && this.rosterService.getContestants().length !== 8) {
       this.messages = "Must have 2, 4, or 8 Players";
       this.rosterService.contestants = [];
     }
