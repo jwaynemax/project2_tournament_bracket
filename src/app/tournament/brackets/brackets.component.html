@@ -1,4 +1,4 @@
-<p>brackets works!</p>
+<h1>Round {{round}}</h1>
 
 <div class="form-group">
   <form (ngSubmit)="getWinner()">
@@ -58,4 +58,4 @@
 </div>
 
 
-<span *ngFor="let winner of winners; index as i">{{winner}} </span>
+<span *ngFor="let player of players; index as i">{{player}} </span>
