@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 
 
 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -14,6 +15,7 @@ export class RegistrationComponent implements OnInit {
   public players: string[] = ['', '', '', '', '', '', '', ''];
   public messages: string;
   public outputPlayers: string[];
+
   constructor(private rosterService: RosterService) {
     this.rosterService.contestants = [];
   }
@@ -41,6 +43,18 @@ export class RegistrationComponent implements OnInit {
       this.rosterService.contestants = [];
     }
     this.outputPlayers = this.rosterService.getContestants();
+  }
+
+  autoFillTwoPlayers(): string[] {
+    return this.players = ['Harry', 'Ron', '', '', '', '', '', ''];
+  }
+
+  autoFillFourPlayers(): string[] {
+    return this.players = ['Michleangelo', 'Raphael', 'Leonardo', 'Donatello', '', '', '', ''];
+  }
+
+  autoFillEightPlayers(): string[] {
+    return this.players = ['Captain America', 'Iron Man', 'Hulk', 'Black Panther', 'Ant Man', 'Spider Man', 'Thor', 'Hawkeye'];
   }
 
   trackByFn(index: any, item: any) {
