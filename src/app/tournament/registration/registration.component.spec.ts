@@ -26,26 +26,44 @@ describe('RegistrationComponent', () => {
   });
 
   it('should have 2 players', () => {
-    component.players = ['John','Jacob']
+    component.players = ['John','Jacob'];
     component.registerContestants();
     expect(component.outputPlayers.length === 2).toBeTruthy();
   });
 
   it('should not allow duplicate players', () => {
-    component.players = ['John','John']
+    component.players = ['John','John'];
     component.registerContestants();
     expect(component.messages === "Error: Player already exists");
   });
 
   it('should not register an empty player', () => {
-    component.players = ['']
+    component.players = [''];
     component.registerContestants();
     expect(component.messages === "Error: Player cannot be empty");
   });
 
   it('should only allow brackets with 2, 4, or 8', () => {
-    component.players = ['John', 'Doe', 'Randy']
+    component.players = ['John', 'Doe', 'Randy'];
     component.registerContestants();
     expect(component.messages === "Must have 2, 4, or 8 Players");
+  });
+
+  it('should autofill two players', () => {
+    component.autoFillTwoPlayers();
+    component.registerContestants();
+    expect(component.outputPlayers.length === 2);
+  });
+
+  it('should autofill four players', () => {
+    component.autoFillFourPlayers();
+    component.registerContestants();
+    expect(component.outputPlayers.length === 4);
+  });
+
+  it('should autofill eight players', () => {
+    component.autoFillEightPlayers();
+    component.registerContestants();
+    expect(component.outputPlayers.length === 8);
   });
 });

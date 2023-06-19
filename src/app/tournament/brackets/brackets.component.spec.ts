@@ -24,7 +24,7 @@ describe('BracketsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should veify that the list of winners contains 4 people', () => {
+  it('should verify that the list of winners contains 4 people', () => {
     component.groupOne = "John";
     component.groupTwo = "Sally";
     component.groupThree = "Jane";
@@ -36,5 +36,18 @@ describe('BracketsComponent', () => {
     component.groupOne = "John";
     component.groupTwo = "Sally";
     expect(component.getWinner().length === 2);
+  });
+
+  it('should be round 1', () => {
+    component.groupOne = "John";
+    component.getWinner()
+    expect(component.round === 1);
+  });
+
+  it('should be round 2', () => {
+    component.groupOne = "John";
+    component.groupOne = "Harry";
+    component.getWinner()
+    expect(component.round === 2);
   });
 });
