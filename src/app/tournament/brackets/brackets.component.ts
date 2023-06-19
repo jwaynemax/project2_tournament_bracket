@@ -25,19 +25,19 @@ export class BracketsComponent implements OnInit {
 
   getWinner(): string[] {
     this.players = [];
-    if (this.groupOne !== '') {
+    if (this.groupOne !== '' && this.groupOne !== undefined) {
       this.players.push(this.groupOne);
     }
 
-    if (this.groupTwo !== '') {
+    if (this.groupTwo !== '' && this.groupTwo !== undefined) {
       this.players.push(this.groupTwo);
     }
 
-    if (this.groupThree !== '') {
+    if (this.groupThree !== '' && this.groupThree !== undefined) {
       this.players.push(this.groupThree);
     }
 
-    if (this.groupFour !== '') {
+    if (this.groupFour !== '' && this.groupFour !== undefined) {
       this.players.push(this.groupFour);
     }
 
@@ -46,7 +46,7 @@ export class BracketsComponent implements OnInit {
     this.groupThree = '';
     this.groupFour = '';
 
-    if(this.round !== 3) {
+    if(this.players.length !== 1) {
       this.round++;
     }
     return this.players;
